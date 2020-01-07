@@ -20,7 +20,7 @@ foreach($usuarios_app as $user){
 
 if($usuario_autenticado){
     $_SESSION['autenticado']='SIM';
-    echo "<br>"."<h1>".'usuario Autenticado Com Suceso !!'."</h1";
+    header('Location: home.php');
 }else{
     $_SESSION['autenticado']='NAO';
     header('Location: index.php?login=erro');
