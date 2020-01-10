@@ -57,16 +57,25 @@
             <div class="card-body">
               <? foreach($chamados as $chamado) { ?>
                 <?php 
+                
                   $dados_chamado= explode("#", $chamado);
+                  
+                  if($_SESSION['perfil_id']==2){
+                    //só exibe o chamado se ele foi criado pelo usuarios
+                    if($_SESSION['id']!=$dados_chamado[0]){
+                      continue;
+                    }
+
+                  }
                   if(count($dados_chamado)<3){
                     continue;
                   }
                   ?>       
                         <div class='card mb-3 bg-light'>
                           <div class="card-body">
-                            <h5 class="card-title"><?=$dados_chamado[0]?></h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><?= $dados_chamado[1]?></h6>
-                            <p class="card-text"><?= $dados_chamado[2] ?></p>
+                            <h5 class="card-title"><?=$dados_chamado[1]?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><?= $dados_chamado[2]?></h6>
+                            <p class="card-text"><?= $dados_chamado[3] ?></p>
 
                       </div>
                     </div> 
